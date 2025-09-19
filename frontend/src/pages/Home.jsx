@@ -31,13 +31,13 @@ export default function Home() {
       <ShowCaseCollection
         title="LATEST COLLECTIONS"
         heading="h3"
-        description="        Lorem Ipsum is simply dummy text of the printing and typesetting
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the."
       />
       <ShowCaseCollection
         title="Best sellers"
         heading="h3"
-        description="        Lorem Ipsum is simply dummy text of the printing and typesetting
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the."
       />
       <OurPolicies cards={policyCards} />

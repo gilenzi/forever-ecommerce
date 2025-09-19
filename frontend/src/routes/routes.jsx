@@ -12,6 +12,7 @@ import ListItems from '../pages/protected/ListItems';
 import AddItems from '../pages/protected/AddItems';
 import Orders from '../pages/protected/Orders';
 import ManagerDashboard from '../pages/protected/ManagerDashboard';
+import AdminLogin from '../components/admin-panel/AdminLogin';
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
     path: '/dashboard',
     element: <AdminLayout />,
     children: [
+      {
+        path: "login",
+        element: <AdminLogin />
+      },
       {
         path: 'admin',
         element: <AdminDashboard />,
