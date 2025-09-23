@@ -25,9 +25,9 @@ export default function AdminLayout() {
   return (
     <div className="bg-gray-50 ">
       <Header />
-      <div className="flex w-full gap-10">
+      <div className="flex w-full gap-3 md:gap-10">
         <Sidebar navItems={sidebarItems} />
-        <div className="">
+        <div className="w-full">
           <Outlet />
         </div>
       </div>

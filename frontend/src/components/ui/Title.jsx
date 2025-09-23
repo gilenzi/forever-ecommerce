@@ -1,4 +1,11 @@
-export default function Title({title = ' ', type = 'h1', position = 'center'}) {
+import {twMerge} from 'tailwind-merge';
+
+export default function Title({
+  title = ' ',
+  type = 'h1',
+  position = 'center',
+  className = '',
+}) {
   const splittedTitle = title.split(' ');
   const restOfTitle = splittedTitle.slice(1);
   const Heading = type;
@@ -19,13 +26,24 @@ export default function Title({title = ' ', type = 'h1', position = 'center'}) {
   };
 
   return (
-    <div className={`flex items-center  gap-3 ${styling[position].wrapper}`}>
+    <div
+      className={twMerge('flex items-center gap-3', styling[position].wrapper)}
+    >
       <Heading
-        className={`uppercase  py-8  text-3xl text-gray-500 ${styling[position].heading}`}
+        className={twMerge(
+          'uppercase py-8 text-3xl text-gray-500',
+          styling[position].heading,
+          className
+        )}
       >
         {splittedTitle[0]}{' '}
-        {restOfTitle.length && (
-          <span className="text-center uppercase  py-8  text-3xl  text-gray-700 font-medium">
+        {restOfTitle.length >= 1 && (
+          <span
+            className={twMerge(
+              'uppercase py-8 text-3xl text-gray-700 font-medium',
+              className
+            )}
+          >
             {restOfTitle.join(' ')}
           </span>
         )}

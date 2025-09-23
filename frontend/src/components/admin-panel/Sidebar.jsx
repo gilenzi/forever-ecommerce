@@ -20,7 +20,7 @@ export default function Sidebar({navItems}) {
               }
             >
               <Icon size={30} {...iconProps} />
-              <span>{text}</span>
+              <span className="hidden md:block">{text}</span>
             </NavLink>
           </li>
         ))}

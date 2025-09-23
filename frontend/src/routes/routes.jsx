@@ -13,6 +13,8 @@ import AddItems from '../pages/protected/AddItems';
 import Orders from '../pages/protected/Orders';
 import ManagerDashboard from '../pages/protected/ManagerDashboard';
 import AdminLogin from '../components/admin-panel/AdminLogin';
+import ProductDetails from '../pages/ProductDetails';
+import PlaceOrder from '../pages/PlaceOrder';
 
 export const router = createBrowserRouter([
   {
@@ -24,24 +26,32 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/collection',
+        path: 'collection',
         element: <Collection />,
       },
       {
-        path: '/about',
+        path: 'about',
         element: <About />,
       },
       {
-        path: '/contact',
+        path: 'contact',
         element: <Contact />,
       },
       {
-        path: '/login',
+        path: 'product/:id',
+        element: <ProductDetails />,
+      },
+      {
+        path: 'login',
         element: <Login />,
       },
       {
-        path: '/cart',
+        path: 'cart',
         element: <Cart />,
+      },
+      {
+        path: 'place-order',
+        element: <PlaceOrder />,
       },
     ],
   },
@@ -51,8 +61,8 @@ export const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       {
-        path: "login",
-        element: <AdminLogin />
+        path: 'login',
+        element: <AdminLogin />,
       },
       {
         path: 'admin',
