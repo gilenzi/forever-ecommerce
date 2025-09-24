@@ -12,6 +12,11 @@ const productSchema = new mongoose.Schema({
     ref: 'Category',
     required: true,
   },
+  subCategory: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true,
+  },
   price: {
     type: Number,
     required: [true, 'Price is required'],
@@ -21,6 +26,11 @@ const productSchema = new mongoose.Schema({
     default: 0,
   },
   images: [String],
+  sizes: {
+    type: [String],
+    required: [true, 'Sizes are required.'],
+  },
+  bestSeller: {type: Boolean},
   createdAt: {
     type: Date,
     default: Date.now,
