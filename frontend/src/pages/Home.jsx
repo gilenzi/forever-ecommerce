@@ -25,6 +25,7 @@ export default function Home() {
       icon: FaHeadset,
     },
   ];
+
   return (
     <div>
       <Hero />

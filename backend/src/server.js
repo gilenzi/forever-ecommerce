@@ -1,11 +1,10 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const app = require('./app');
 const connectMongoDB = require('./config/mongodb');
 
-const PORT = process.env.PORT || 3000;
+dotenv.config({quiet: true});
 
-dotenv.config();
+const PORT = process.env.PORT || 3000;
 
 connectMongoDB();
 

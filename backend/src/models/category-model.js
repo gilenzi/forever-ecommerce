@@ -8,7 +8,7 @@ const categorySchema = new mongoose.Schema({
     unique: true,
   },
   description: String,
-  createdAt: {type: Date, default: Date.now},
+  createdAt: {type: Date, default: Date.now()},
 });
 
 const Category = mongoose.model('Category', categorySchema);

@@ -1,9 +1,6 @@
 import heroImage from '@assets/hero_img.png';
 
 export default function Hero() {
-  const userDate = new Date();
-  const offsetInMinutes = userDate.getTimezoneOffset();
-  console.log(offsetInMinutes);
   return (
     <div className="flex flex-col sm:flex-row items-center border border-gray-300">
       <div className="flex-1  flex flex-col py-10 sm:py-0 items-center">

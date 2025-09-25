@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
   phone: String,
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
 });
 

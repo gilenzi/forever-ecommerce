@@ -33,7 +33,7 @@ const productSchema = new mongoose.Schema({
   bestSeller: {type: Boolean},
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
 });
 

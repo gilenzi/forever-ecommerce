@@ -1,8 +1,19 @@
 import Title from '@components/ui/Title';
 import {useState} from 'react';
 import ShowCaseCard from '../components/ui/ShowCaseCard';
+import {useQuery} from '@tanstack/react-query';
+import apiConfig from '../config/api';
+import apiClient from '../config/api-client';
+import {useProducts} from '../hooks/useProduct';
+import {Spinner} from '../components/ui/Spinner';
 
 export default function Collection() {
+  const {
+    data: {status, products},
+    isError,
+    isLoading,
+  } = useProducts();
+
   const [selectedFilter, setSelectedFilter] = useState({
     category: [],
     type: [],
@@ -60,6 +71,9 @@ export default function Collection() {
     },
   ];
 
+  if (isLoading)
+    return <Spinner style={{position: 'fixed', top: '12%', left: '50%'}} />;
+
   return (
     <div>
       <div className="flex flex-col md:flex-row gap-5">
@@ -98,43 +112,18 @@ export default function Collection() {
               ))}
             </select>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-            <ShowCaseCard
-              title="Kid Tapered Slim Fit Trouser"
-              price={38}
-              img={
-                'https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img47.png'
-              }
-            />
-            <ShowCaseCard
-              title="Kid Tapered Slim Fit Trouser"
-              price={38}
-              img={
-                'https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img47.png'
-              }
-            />
-            <ShowCaseCard
-              title="Kid Tapered Slim Fit Trouser"
-              price={38}
-              img={
-                'https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img47.png'
-              }
-            />
-            <ShowCaseCard
-              title="Kid Tapered Slim Fit Trouser"
-              price={38}
-              img={
-                'https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img47.png'
-              }
-            />
-            <ShowCaseCard
-              title="Kid Tapered Slim Fit Trouser"
-              price={38}
-              img={
-                'https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img47.png'
-              }
-            />
-          </div>
+          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
+            {products?.map((product) => (
+              <li key={product._id}>
+                <ShowCaseCard
+                  title={product.name}
+                  price={product.price}
+                  img={product.images[0]}
+                  to={`/product/${product._id}`}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

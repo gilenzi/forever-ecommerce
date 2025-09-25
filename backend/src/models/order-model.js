@@ -32,7 +32,7 @@ const orderSchema = new mongoose.Schema({
     city: String,
     zip: String,
   },
-  createdAt: {type: Date, default: Date.now},
+  createdAt: {type: Date, default: Date.now()},
 });
 
 const Order = mongoose.model('Order', orderSchema);
